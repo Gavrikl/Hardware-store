@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f85f7735a3614b699800d9f6ce16f252" Name="Diagram1">
+        <EntityTypeShape EntityType="WTFTutorial2Model.Closing_application" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTFTutorial2Model.Making_an_application" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTFTutorial2Model.Staff_of_employees" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="WTFTutorial2Model.FK_Closing_application_Making_an_application" ManuallyRouted="false" />
+        <AssociationConnector Association="WTFTutorial2Model.FK_Closing_application_Staff_of_employees" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

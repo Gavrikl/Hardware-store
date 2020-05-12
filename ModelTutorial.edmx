@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище WTFTutorial2Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Closing application">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Price" Type="int" />
+          <Property Name="IdMakinganapplication" Type="int" Nullable="false" />
+          <Property Name="IdStaffofemployees" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Making an application">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="MiddleName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="int" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Type" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Staff of employees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="MiddleName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Salary" Type="int" />
+          <Property Name="Phone" Type="int" />
+        </EntityType>
+        <Association Name="FK_Closing application_Making an application">
+          <End Role="Making an application" Type="Self.Making an application" Multiplicity="1" />
+          <End Role="Closing application" Type="Self.Closing application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Making an application">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Closing application">
+              <PropertyRef Name="IdMakinganapplication" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Closing application_Staff of employees">
+          <End Role="Staff of employees" Type="Self.Staff of employees" Multiplicity="1" />
+          <End Role="Closing application" Type="Self.Closing application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff of employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Closing application">
+              <PropertyRef Name="IdStaffofemployees" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище WTFTutorial2ModelContainer">
+          <EntitySet Name="Closing application" EntityType="Self.Closing application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Making an application" EntityType="Self.Making an application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff of employees" EntityType="Self.Staff of employees" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Closing application_Making an application" Association="Self.FK_Closing application_Making an application">
+            <End Role="Making an application" EntitySet="Making an application" />
+            <End Role="Closing application" EntitySet="Closing application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Closing application_Staff of employees" Association="Self.FK_Closing application_Staff of employees">
+            <End Role="Staff of employees" EntitySet="Staff of employees" />
+            <End Role="Closing application" EntitySet="Closing application" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WTFTutorial2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Closing_application">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="IdMakinganapplication" Type="Int32" Nullable="false" />
+          <Property Name="IdStaffofemployees" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Making_an_application" Relationship="Self.FK_Closing_application_Making_an_application" FromRole="Closing_application" ToRole="Making_an_application" />
+          <NavigationProperty Name="Staff_of_employees" Relationship="Self.FK_Closing_application_Staff_of_employees" FromRole="Closing_application" ToRole="Staff_of_employees" />
+        </EntityType>
+        <EntityType Name="Making_an_application">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Closing_application" Relationship="Self.FK_Closing_application_Making_an_application" FromRole="Making_an_application" ToRole="Closing_application" />
+        </EntityType>
+        <EntityType Name="Staff_of_employees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Salary" Type="Int32" />
+          <Property Name="Phone" Type="Int32" />
+          <NavigationProperty Name="Closing_application" Relationship="Self.FK_Closing_application_Staff_of_employees" FromRole="Staff_of_employees" ToRole="Closing_application" />
+        </EntityType>
+        <Association Name="FK_Closing_application_Making_an_application">
+          <End Role="Making_an_application" Type="Self.Making_an_application" Multiplicity="1" />
+          <End Role="Closing_application" Type="Self.Closing_application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Making_an_application">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Closing_application">
+              <PropertyRef Name="IdMakinganapplication" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Closing_application_Staff_of_employees">
+          <End Role="Staff_of_employees" Type="Self.Staff_of_employees" Multiplicity="1" />
+          <End Role="Closing_application" Type="Self.Closing_application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff_of_employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Closing_application">
+              <PropertyRef Name="IdStaffofemployees" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WTFTutorial2Entities5" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Closing_application" EntityType="Self.Closing_application" />
+          <EntitySet Name="Making_an_application" EntityType="Self.Making_an_application" />
+          <EntitySet Name="Staff_of_employees" EntityType="Self.Staff_of_employees" />
+          <AssociationSet Name="FK_Closing_application_Making_an_application" Association="Self.FK_Closing_application_Making_an_application">
+            <End Role="Making_an_application" EntitySet="Making_an_application" />
+            <End Role="Closing_application" EntitySet="Closing_application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Closing_application_Staff_of_employees" Association="Self.FK_Closing_application_Staff_of_employees">
+            <End Role="Staff_of_employees" EntitySet="Staff_of_employees" />
+            <End Role="Closing_application" EntitySet="Closing_application" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище WTFTutorial2ModelContainer" CdmEntityContainer="WTFTutorial2Entities5">
+          <EntitySetMapping Name="Closing_application">
+            <EntityTypeMapping TypeName="WTFTutorial2Model.Closing_application">
+              <MappingFragment StoreEntitySet="Closing application">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="IdMakinganapplication" ColumnName="IdMakinganapplication" />
+                <ScalarProperty Name="IdStaffofemployees" ColumnName="IdStaffofemployees" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Making_an_application">
+            <EntityTypeMapping TypeName="WTFTutorial2Model.Making_an_application">
+              <MappingFragment StoreEntitySet="Making an application">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staff_of_employees">
+            <EntityTypeMapping TypeName="WTFTutorial2Model.Staff_of_employees">
+              <MappingFragment StoreEntitySet="Staff of employees">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
