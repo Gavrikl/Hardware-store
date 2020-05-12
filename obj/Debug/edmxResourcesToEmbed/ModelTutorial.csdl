@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WTFTutorial2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Closing_application">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="IdMakinganapplication" Type="Int32" Nullable="false" />
+    <Property Name="IdStaffofemployees" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Making_an_application" Relationship="Self.FK_Closing_application_Making_an_application" FromRole="Closing_application" ToRole="Making_an_application" />
+    <NavigationProperty Name="Staff_of_employees" Relationship="Self.FK_Closing_application_Staff_of_employees" FromRole="Closing_application" ToRole="Staff_of_employees" />
+  </EntityType>
+  <EntityType Name="Making_an_application">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Closing_application" Relationship="Self.FK_Closing_application_Making_an_application" FromRole="Making_an_application" ToRole="Closing_application" />
+  </EntityType>
+  <EntityType Name="Staff_of_employees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Salary" Type="Int32" />
+    <Property Name="Phone" Type="Int32" />
+    <NavigationProperty Name="Closing_application" Relationship="Self.FK_Closing_application_Staff_of_employees" FromRole="Staff_of_employees" ToRole="Closing_application" />
+  </EntityType>
+  <Association Name="FK_Closing_application_Making_an_application">
+    <End Role="Making_an_application" Type="Self.Making_an_application" Multiplicity="1" />
+    <End Role="Closing_application" Type="Self.Closing_application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Making_an_application">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Closing_application">
+        <PropertyRef Name="IdMakinganapplication" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Closing_application_Staff_of_employees">
+    <End Role="Staff_of_employees" Type="Self.Staff_of_employees" Multiplicity="1" />
+    <End Role="Closing_application" Type="Self.Closing_application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff_of_employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Closing_application">
+        <PropertyRef Name="IdStaffofemployees" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WTFTutorial2Entities5" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Closing_application" EntityType="Self.Closing_application" />
+    <EntitySet Name="Making_an_application" EntityType="Self.Making_an_application" />
+    <EntitySet Name="Staff_of_employees" EntityType="Self.Staff_of_employees" />
+    <AssociationSet Name="FK_Closing_application_Making_an_application" Association="Self.FK_Closing_application_Making_an_application">
+      <End Role="Making_an_application" EntitySet="Making_an_application" />
+      <End Role="Closing_application" EntitySet="Closing_application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Closing_application_Staff_of_employees" Association="Self.FK_Closing_application_Staff_of_employees">
+      <End Role="Staff_of_employees" EntitySet="Staff_of_employees" />
+      <End Role="Closing_application" EntitySet="Closing_application" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

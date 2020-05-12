@@ -1,0 +1,17 @@
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\bin\Debug\Hardware Store Project.exe.config
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\obj\Debug\Hardware Store Project.csprojResolveAssemblyReference.cache
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\obj\Debug\Hardware_Store_Project.Form_Making_an_application.resources
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\obj\Debug\Hardware_Store_Project.Menu.resources
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\obj\Debug\Hardware_Store_Project.Properties.Resources.resources
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\obj\Debug\Hardware Store Project.csproj.GenerateResource.Cache
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\bin\Debug\Hardware Store Project.exe
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\bin\Debug\Hardware Store Project.pdb
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\bin\Debug\EntityFramework.dll
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\bin\Debug\EntityFramework.xml
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\obj\Debug\Hardware Store Project.exe
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\obj\Debug\Hardware Store Project.pdb
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\obj\Debug\Hardware_Store_Project.Form_Staff_of_employees.resources
+C:\Users\Acer\Desktop\Новое ПО\Hardware Store Project\obj\Debug\Hardware_Store_Project.Form_Closing_application.resources
